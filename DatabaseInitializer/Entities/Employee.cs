@@ -7,4 +7,8 @@ public class Employee
     public required int CompanyId { get; set; }
     public required string ContractType { get; set; }
     public required int Salary { get; set; }
+    
+    // Navigation properties
+    public virtual Person Person { get; set; }
+    public virtual Company Company { get; set; }
 }
