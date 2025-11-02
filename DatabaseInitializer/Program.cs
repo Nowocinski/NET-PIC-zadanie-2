@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 var host = builder.Build();
 
-// Test database connection
+// Apply database migrations
 using (var scope = host.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -27,15 +27,32 @@ using (var scope = host.Services.CreateScope())
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
         
-        // Ensure database is created
-        await context.Database.EnsureCreatedAsync();
+        Console.WriteLine("Applying database migrations...");
         
-        Console.WriteLine("Database connection successful!");
+        // Apply pending migrations
+        var pendingMigrations = await context.Database.GetPendingMigrationsAsync();
+        if (pendingMigrations.Any())
+        {
+            Console.WriteLine($"Found {pendingMigrations.Count()} pending migration(s):");
+            foreach (var migration in pendingMigrations)
+            {
+                Console.WriteLine($"  - {migration}");
+            }
+            
+            await context.Database.MigrateAsync();
+            Console.WriteLine("Migrations applied successfully!");
+        }
+        else
+        {
+            Console.WriteLine("Database is up to date. No pending migrations.");
+        }
+        
         Console.WriteLine($"Database: {context.Database.GetDbConnection().Database}");
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"An error occurred while connecting to the database: {ex.Message}");
+        Console.WriteLine($"An error occurred while applying migrations: {ex.Message}");
+        Console.WriteLine($"Stack trace: {ex.StackTrace}");
     }
 }
 
