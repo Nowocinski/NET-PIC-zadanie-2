@@ -17,5 +17,16 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
             .ValueGeneratedOnAdd();
         
         builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
+        
+        // Relationships
+        builder.HasOne(c => c.Boss)
+            .WithMany()
+            .HasForeignKey(c => c.BossId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasMany(c => c.Employees)
+            .WithOne(e => e.Company)
+            .HasForeignKey(e => e.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

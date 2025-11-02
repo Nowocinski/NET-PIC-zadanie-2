@@ -18,5 +18,16 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
         
         builder.Property(e => e.ContractType).IsRequired().HasMaxLength(50);
         builder.Property(e => e.Salary).IsRequired();
+        
+        // Relationships
+        builder.HasOne(e => e.Person)
+            .WithMany()
+            .HasForeignKey(e => e.PersonId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(e => e.Company)
+            .WithMany(c => c.Employees)
+            .HasForeignKey(e => e.CompanyId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

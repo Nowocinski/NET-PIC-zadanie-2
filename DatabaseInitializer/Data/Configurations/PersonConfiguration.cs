@@ -23,5 +23,21 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
         builder.Property(p => p.FatherId).IsRequired(false);
         builder.Property(p => p.MotherId).IsRequired(false);
         builder.Property(p => p.SpouseId).IsRequired(false);
+        
+        // Relationships
+        builder.HasOne(p => p.Father)
+            .WithMany()
+            .HasForeignKey(p => p.FatherId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(p => p.Mother)
+            .WithMany()
+            .HasForeignKey(p => p.MotherId)
+            .OnDelete(DeleteBehavior.Restrict);
+        
+        builder.HasOne(p => p.Spouse)
+            .WithMany()
+            .HasForeignKey(p => p.SpouseId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }
