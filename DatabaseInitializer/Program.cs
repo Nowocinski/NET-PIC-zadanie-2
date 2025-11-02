@@ -48,12 +48,17 @@ using (var scope = host.Services.CreateScope())
         }
         
         Console.WriteLine($"Database: {context.Database.GetDbConnection().Database}");
+        Console.WriteLine("\nDatabase initialization completed. Press any key to exit...");
+        Console.ReadKey();
     }
     catch (Exception ex)
     {
         Console.WriteLine($"An error occurred while applying migrations: {ex.Message}");
         Console.WriteLine($"Stack trace: {ex.StackTrace}");
+        Console.WriteLine("\nPress any key to exit...");
+        Console.ReadKey();
+        Environment.Exit(1);
     }
 }
 
-await host.RunAsync();
+Console.WriteLine("Application finished.");
