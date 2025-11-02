@@ -17,12 +17,14 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
             .ValueGeneratedOnAdd();
         
         builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
+        builder.Property(c => c.BossId).IsRequired(false);
         
         // Relationships
         builder.HasOne(c => c.Boss)
             .WithMany()
             .HasForeignKey(c => c.BossId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.Restrict)
+            .IsRequired(false);
         
         builder.HasMany(c => c.Employees)
             .WithOne(e => e.Company)
