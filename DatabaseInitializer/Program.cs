@@ -48,6 +48,11 @@ using (var scope = host.Services.CreateScope())
         }
         
         Console.WriteLine($"Database: {context.Database.GetDbConnection().Database}");
+        
+        // Seed database with random data
+        var seeder = new DataSeeder(context);
+        await seeder.SeedAsync(personCount: 50, companyCount: 10);
+        
         Console.WriteLine("\nDatabase initialization completed. Press any key to exit...");
         Console.ReadKey();
     }
