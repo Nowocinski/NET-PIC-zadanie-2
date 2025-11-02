@@ -5,7 +5,7 @@ public class Person
     public required int PersonId { get; set; }
     public required string FirstName { get; set; }
     public required string LastName { get; set; }
-    public required DateOnly Birth { get; set; }
+    public required DateOnly BirthDate { get; set; }
     public required string Gender { get; set; }
     public int? FatherId { get; set; }
     public int? MotherId { get; set; }
