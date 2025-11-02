@@ -172,7 +172,7 @@ public class DataSeeder
         var employees = new List<Employee>();
         var usedPersonIds = new HashSet<int>();
 
-        var contractTypes = new[] { "Full-time", "Part-time", "Contract", "Temporary", "Internship" };
+        var contractTypes = new[] { "Umowa zlecenie", "Umowa o pracę" };
 
         // Create 2-10 employees per company
         foreach (var company in companies)
