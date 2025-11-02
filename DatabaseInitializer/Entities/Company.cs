@@ -1,4 +1,4 @@
-namespace NET_PIC_zadanie_2.Entities;
+namespace DatabaseInitializer.Entities;
 
 public class Company
 {
