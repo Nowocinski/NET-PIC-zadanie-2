@@ -7,7 +7,7 @@ Zawartość repozytorium:
 ### Diagram ERD
 ![Diagram ERD](screenshots/ERD.png)
 
-### Strona główna
+### Diagram ERD programu PgAdmin
 ![Diagram ERD programu PgAdmin](screenshots/ERD-pg-admin.png)
 
 ## Zadania
