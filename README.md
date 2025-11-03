@@ -10,6 +10,17 @@ Zawartość repozytorium:
 ### Diagram ERD programu PgAdmin
 ![Diagram ERD programu PgAdmin](screenshots/ERD-pg-admin.png)
 
+### Indeksowane kolumny
+- Tabela Person
+  - Gender
+  - FirstName, LastName - indeks złożony
+  - BirthDate
+- Tabela Employee
+  - Salary
+  - ContractType
+  - CompanyId, ContractType - indeks złożony
+- Tabela Company
+  - Name
 ## Zadania
 
 A.
