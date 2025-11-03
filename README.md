@@ -40,6 +40,9 @@ ORDER BY NumberOfGranddaughters DESC
 LIMIT 1;
 ```
 
+Wynik zapytania:
+![Wynik zapytania A](screenshots/res-a.png)
+
 B.
 
 ```sql
@@ -51,5 +54,8 @@ FROM "Employee" e
 GROUP BY e."ContractType"
 ORDER BY e."ContractType";
 ```
+
+Wynik zapytania:
+![Wynik zapytania B](screenshots/res-b.png)
 
 C. -
