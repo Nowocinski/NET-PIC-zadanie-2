@@ -40,3 +40,5 @@ FROM "Employee" e
 GROUP BY e."ContractType"
 ORDER BY e."ContractType";
 ```
+
+C. -
