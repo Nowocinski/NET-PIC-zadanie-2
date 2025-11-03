@@ -1,7 +1,7 @@
 # Ogólny opis
 
 Zawartość repozytorium:
-- **DatabaseInitializer** - aplikacja konsolowa .NET 8.0, która inicjalizuje bazę danych PostgreSQL z przykładowymi danymi.
+- **DatabaseInitializer** - aplikacja konsolowa .NET 9.0, która inicjalizuje bazę danych PostgreSQL z przykładowymi danymi.
 - **Zrzut bazy danych/postgres-db-copy.sql** - zrzut bazy danych PostgreSQL z przykładowymi danymi.
 
 ### Diagram ERD
