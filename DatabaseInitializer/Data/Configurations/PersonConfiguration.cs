@@ -39,5 +39,10 @@ public class PersonConfiguration : IEntityTypeConfiguration<Person>
             .WithMany()
             .HasForeignKey(p => p.SpouseId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        // Indexes
+        builder.HasIndex(p => p.Gender);
+        builder.HasIndex(p => new { p.FirstName, p.LastName });
+        builder.HasIndex(p => p.BirthDate);
     }
 }

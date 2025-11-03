@@ -30,5 +30,8 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
             .WithOne(e => e.Company)
             .HasForeignKey(e => e.CompanyId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        // Indexes
+        builder.HasIndex(c => c.Name);
     }
 }

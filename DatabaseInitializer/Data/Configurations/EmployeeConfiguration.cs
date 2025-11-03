@@ -29,5 +29,10 @@ public class EmployeeConfiguration : IEntityTypeConfiguration<Employee>
             .WithMany(c => c.Employees)
             .HasForeignKey(e => e.CompanyId)
             .OnDelete(DeleteBehavior.Restrict);
+        
+        // Indexes
+        builder.HasIndex(e => e.Salary);
+        builder.HasIndex(e => e.ContractType);
+        builder.HasIndex(e => new { e.CompanyId, e.ContractType });
     }
 }
